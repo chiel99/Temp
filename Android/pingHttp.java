@@ -22,3 +22,10 @@ public static boolean ping(String url, int timeout) {
     }
 }
 
+public boolean isNetworkAvailable() {
+    ConnectivityManager connMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+    if (networkInfo != null && networkInfo.isConnected())
+        return true;
+    return false;
+}
